@@ -1,0 +1,7 @@
+Command Line Arguments:
+     dir = pet_images/ 
+    arch = alexnet 
+ dogfile = dognames.txt
+* Doesn't Check the Results Dictionary because 'get_pet_labels' hasn't been defined.
+Your model is not accepted, please select one of the following: vcc, resnet or alexnet
+* Doesn't Check the Results Dictionary because 'classify_images' hasn't been defined.
