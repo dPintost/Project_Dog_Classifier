@@ -57,7 +57,9 @@ def get_pet_labels(image_dir):
 
           pet_label='' #empty string
           pet_label=filenames[i].lower().replace("_"," ").replace(".jpg","")
-          for digit in '0123456789':
-            pet_label=pet_label.replace(digit,"")
+          pet_label=pet_label.strip('0123456789')
+          pet_label=pet_label[:-1]
+          results_dic[filenames[i]]=[pet_label]
 
-          results_dic[filenames[i]]=pet_label
+    print(results_dic)
+    return results_dic

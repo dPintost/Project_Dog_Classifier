@@ -21,7 +21,7 @@
 #
 ##
 # Imports classifier function for using CNN to classify images 
-from classifier import classifier 
+
 
 # TODO 3: Define classify_images function below, specifically replace the None
 #       below by the function definition of the classify_images function. 
@@ -65,20 +65,19 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.         
     """
-    if model!="vcc" or model!="resnet" or model!="alexnet":
-      print("Your model is not accepted, please select one of the following: vcc, resnet or alexnet")
-    
+    from classifier import classifier 
+    import os
+
+    if model not in ("vgg", "resnet", "alexnet"):
+        print("Your model is not accepted; please select one of: vgg, resnet, alexnet")
+        return
     else:
-      for key in results_dic:
-
-        model_label=""
-        model_label=classifier(images_dir+'/'+key,model)
-        model_label=model_label.lower().strip()
-        results_dic[key].append(model_label)
-
-        truth = results_dic[key][0]
-
-        if model_label in truth:
-          results_dic[key].append(1)
+      for filename, data in results_dic.items():
+        img_path = os.path.join(images_dir, filename)
+        model_label=classifier(img_path,model).lower().strip()
+        data.append(model_label)
+        truth = data[0].lower().strip()
+        if model_label in truth or truth in model_label:
+          data.append(1)
         else:
-          results_dic[key].append(0)
+          data.append(0)

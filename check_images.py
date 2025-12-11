@@ -78,6 +78,8 @@ def main():
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
 
+    print(results)
+
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
 
@@ -115,7 +117,7 @@ def main():
     #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, arg.arch, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True)
     
     # TODO 0: Measure total program runtime by collecting end time
     end_time = time.time()

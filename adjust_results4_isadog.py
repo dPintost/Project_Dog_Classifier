@@ -30,12 +30,6 @@
 #           at indices 3 & 4 to 1 when the label is of-a-dog and to 0 when the 
 #           label isn't a dog.
 #
-##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
-#       below by the function definition of the adjust_results4_isadog function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
 # 
 def adjust_results4_isadog(results_dic, dogfile):
     """
@@ -72,29 +66,27 @@ def adjust_results4_isadog(results_dic, dogfile):
     with open(dogfile,'r') as file:
       line=file.readline()
 
-      while line!="":
-        line=line.rstrip()
+      while line!='':
+        line=line.rstrip().lower()
         if line in doglist:
           print(f"Dog name{line:} was already in the list")
         else:
           doglist.append(line)
-
-    for key in results_dic:#loop through results dictionary
-
-        if results_dic[key][0] in doglist: #check if processed filename is a dog name and store data
-          results_dic[key].append(1)
-
-        else:
-          results_dic[key].append(0)
-
-        if results_dic[key][1] in doglist:
-          results_dic[key].append(1)
-
-        else:
-          results_dic[key].append(0)
-
-   
       
+        line=file.readline()
 
+    for filename,data in results_dic.items(): #loop through results dictionary
 
+        if data[0] in doglist: #check if processed filename is a dog name and store data
+          data.append(1)
 
+        else:
+          data.append(0)
+
+        if data[1] in doglist:
+          data.append(1)
+
+        else:
+          data.append(0)
+    print(results_dic)
+    return results_dic

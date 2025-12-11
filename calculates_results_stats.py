@@ -71,18 +71,18 @@ def calculates_results_stats(results_dic):
     # Replace None with the results_stats_dic dictionary that you created with 
     # this function 
     results_stats_dic=dict()
-    results_stats_dic['n_total_img']=len(results_dic) #Z
+    results_stats_dic['n_images']=len(results_dic) #Z
     results_stats_dic['n_correct_dogs'] = 0 #A
     results_stats_dic['n_dogs_img'] = 0 #B
     results_stats_dic['n_correct_notdogs'] = 0 #C
     results_stats_dic['n_notdogs_img'] = 0 #D
     results_stats_dic['n_correct_breed'] = 0 #E
     results_stats_dic['n_match'] = 0 #Y
+    results_stats_dic['pct_correct_dogs'] = 0 #A1
 
     for key in results_dic:
         if results_dic[key][3]==1 and results_dic[key][4]==1:
                 results_stats_dic['n_correct_dogs']+=1 #A
-
         if results_dic[key][3]==1:
                 results_stats_dic['n_dogs_img']+=1 #B
 
@@ -98,4 +98,8 @@ def calculates_results_stats(results_dic):
         if results_dic[key][2]==1:
                 results_stats_dic['n_match']+=1 #Y
 
-        return results_stats_dic
+    results_stats_dic['pct_correct_dogs'] = 100*results_stats_dic['n_correct_dogs']/results_stats_dic['n_dogs_img'] #1a
+    results_stats_dic['pct_correct_notdogs'] = 100*results_stats_dic['n_correct_notdogs']/results_stats_dic['n_notdogs_img'] #1b
+    results_stats_dic['pct_correct_breed'] = 100*results_stats_dic['n_correct_breed']/results_stats_dic['n_images'] #2
+
+    return results_stats_dic
