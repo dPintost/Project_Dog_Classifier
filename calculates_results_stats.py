@@ -100,6 +100,6 @@ def calculates_results_stats(results_dic):
 
     results_stats_dic['pct_correct_dogs'] = 100*results_stats_dic['n_correct_dogs']/results_stats_dic['n_dogs_img'] #1a
     results_stats_dic['pct_correct_notdogs'] = 100*results_stats_dic['n_correct_notdogs']/results_stats_dic['n_notdogs_img'] #1b
-    results_stats_dic['pct_correct_breed'] = 100*results_stats_dic['n_correct_breed']/results_stats_dic['n_images'] #2
+    results_stats_dic['pct_correct_breed'] = 100*results_stats_dic['n_correct_breed']/results_stats_dic['n_dogs_img'] #2
 
     return results_stats_dic
