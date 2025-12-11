@@ -68,9 +68,9 @@ def print_results(results_dic, results_stats_dic, model,
     print("{:20}: {:3d}".format('Total Images', results_stats_dic['n_images']))
     print("{:20}: {:3d}".format('Total Dog Images', results_stats_dic['n_dogs_img']))
     print("{:20}: {:3d}".format('Total not Dog Images', results_stats_dic['n_notdogs_img']))
-    print("{:20}: {:5d}".format('"%" correct Dog Images', results_stats_dic['pct_correct_dogs']))
-    print("{:20}: {:5d}".format('"%" correct not Dog Images', results_stats_dic['pct_correct_notdogs']))
-    print("{:20}: {:5d}".format('"%" correct Dog breed Images', results_stats_dic['pct_correct_breed']))
+    print("{:20}: {:5f}".format('"%" correct Dog Images', results_stats_dic['pct_correct_dogs']))
+    print("{:20}: {:5f}".format('"%" correct not Dog Images', results_stats_dic['pct_correct_notdogs']))
+    print("{:20}: {:5f}".format('"%" correct Dog breed Images', results_stats_dic['pct_correct_breed']))
 
     if print_incorrect_dogs and ((results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs']) != results_stats_dic['n_images']):
         print("\nINCORRECT Dog/NOT Dog Assignments:")
